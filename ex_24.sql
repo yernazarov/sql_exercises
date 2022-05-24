@@ -1,6 +1,6 @@
-SELECT T.Name, SUM(IL.InvoiceId) as SalesCount
+SELECT T.Name, COUNT(IL.Quantity) as SalesCount
 FROM InvoiceLine IL
 JOIN Track T ON IL.TrackId = T.TrackId
-GROUP BY T.TrackId
+GROUP BY T.Name
 ORDER BY SalesCount DESC
 LIMIT 5;
